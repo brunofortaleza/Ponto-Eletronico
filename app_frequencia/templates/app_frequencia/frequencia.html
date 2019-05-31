@@ -1,0 +1,28 @@
+{% if user.is_authenticated %}
+    <head>
+        <title>Frequência</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    </head>
+    <body>
+        {% for frequencia in frequencias %}
+            {% if frequencia.funcionario.usuario == user %}
+            <div>
+                <b>Nome: </b>{{ frequencia.funcionario.nome }}
+                <br>
+                <b>Hora do registro: </b>{{ frequencia.hora_ponto }}
+                <br>
+                <b>Datado registro: </b>{{ frequencia.data_resgistro }}
+                <br>
+                <b>Status do registro: </b>{{ frequencia.status_ponto }}
+                <br>
+                <b>IP da maquina: </b>{{ frequencia.ip_registro }}
+                <br>
+                <b>Tipo registro: </b> {{ frequencia.tipo_ponto }}
+            </div>
+            {% endif %}
+        {% endfor %}
+        
+        <span class="sair"><a href="{% url 'logout' %}">Sair</a></span>
+    </body>
+{% endif %}

@@ -1,0 +1,18 @@
+{% block conteudo %}
+    <head>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    </head>
+    <body>
+        <div class="container"  align="center">
+            <div class="box">
+                <h1>Faça o seu login</h1>
+                <form action="." method="post">
+                        <td>{% csrf_token %}</td>
+                        <td>{{ form.as_p }}</td>
+                        <input class="btn" type="submit" value="login">
+                </form>
+            </div>
+        </div>
+    </body>
+{% endblock %}
